@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<title>JC SORTEOS RD | Premios exclusivos</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --negro: #080808;
+    --panel: #141414;
+    --dorado: #e8bd62;
+    --blanco: #ffffff;
+    --gris: #aaaaaa;
+}
+
+body {
+    background: var(--negro);
+    color: var(--blanco);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    background: #0d0d0d;
+    border-bottom: 1px solid #3a3020;
+    padding: 18px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.logo {
+    color: var(--dorado);
+    font-size: 21px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: white;
+}
+
+nav {
+    display: flex;
+    gap: 13px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.hero {
+    padding: 65px 20px;
+    text-align: center;
+    background:
+        radial-gradient(ellipse at top, #392b13 0%, #17120a 35%, #080808 75%);
+}
+
+.etiqueta {
+    display: inline-block;
+    border: 1px solid #8d6c2e;
+    border-radius: 30px;
+    padding: 5px 13px;
+    color: var(--dorado);
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(35px, 9vw, 60px);
+    line-height: 1.12;
+    margin-bottom: 18px;
+}
+
+.hero h1 span {
+    color: var(--dorado);
+}
+
+.hero p {
+    color: #c2c2c2;
+    max-width: 480px;
+    margin: 0 auto 25px;
+    font-size: 15px;
+}
+
+.boton {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 7px;
+    background: var(--dorado);
+    color: #111;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.boton-secundario {
+    background: transparent;
+    color: var(--dorado);
+    border: 1px solid var(--dorado);
+}
+
+.botones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+section {
+    padding: 45px 17px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.titulo h2 {
+    font-size: 27px;
+}
+
+.titulo h2 span {
+    color: var(--dorado);
+}
+
+.titulo p {
+    color: var(--gris);
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.tarjeta {
+    background: var(--panel);
+    border: 1px solid #30291d;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.imagen-premio {
+    height: 145px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #302511, #111111);
+    font-size: 67px;
+}
+
+.contenido {
+    padding: 18px;
+}
+
+.contenido h3 {
+    color: var(--dorado);
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.contenido p {
+    color: #b7b7b7;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.estado {
+    display: inline-block;
+    font-size: 11px;
+    color: #e8bd62;
+    border: 1px solid #66502b;
+    padding: 4px 9px;
+    border-radius: 20px;
+}
+
+.info {
+    background: #111;
+    border-top: 1px solid #282218;
+    border-bottom: 1px solid #282218;
+}
+
+.info-caja {
+    text-align: center;
+    padding: 22px 15px;
+    background: #171717;
+    border-radius: 10px;
+    border: 1px solid #30291d;
+}
+
+.info-caja .icono {
+    font-size: 30px;
+}
+
+.info-caja h3 {
+    color: var(--dorado);
+    margin: 8px 0;
+}
+
+.info-caja p {
+    color: #bbb;
+    font-size: 13px;
+}
+
+.ganador {
+    border-left: 3px solid var(--dorado);
+    padding: 15px;
+    margin-bottom: 13px;
+    background: var(--panel);
+    border-radius: 5px;
+}
+
+.ganador p {
+    color: #bbb;
+    font-size: 13px;
+}
+
+.ganador strong {
+    color: var(--dorado);
+}
+
+.aviso {
+    text-align: center;
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #4c4028;
+    background: #18150f;
+    border-radius: 8px;
+    color: #d5c49d;
+    font-size: 13px;
+}
+
+footer {
+    border-top: 1px solid #332a1b;
+    padding: 30px 15px;
+    text-align: center;
+    color: #999;
+    font-size: 12px;
+}
+
+footer strong {
+    color: var(--dorado);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.88);
+    z-index: 10;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+}
+
+.modal-contenido {
+    width: 100%;
+    max-width: 380px;
+    background: #171717;
+    border: 1px solid var(--dorado);
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.modal-contenido h2 {
+    color: var(--dorado);
+    margin-bottom: 15px;
+}
+
+.modal-contenido input {
+    width: 100%;
+    padding: 12px;
+    margin: 7px 0;
+    background: #080808;
+    border: 1px solid #444;
+    border-radius: 6px;
+    color: white;
+}
+
+.modal-contenido .boton {
+    width: 100%;
+    margin-top: 12px;
+}
+
+.cerrar {
+    float: right;
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.mensaje {
+    color: #d6c69f;
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+@media (max-width: 420px) {
+    header {
+        padding: 15px 10px;
+    }
+
+    .logo {
+        font-size: 17px;
+    }
+
+    nav {
+        gap: 8px;
+    }
+
+    nav a {
+        font-size: 10px;
+    }
+
+    .hero {
+        padding: 55px 15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">JC <span>SORTEOS</span> RD</div>
+
+    <nav>
+        <a href="#premios">Premios</a>
+        <a href="#ganadores">Ganadores</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+</header>
+
+<main>
+
+    <div class="hero">
+        <div class="etiqueta">REPÚBLICA DOMINICANA</div>
+
+        <h1>Grandes premios.<br>
+        <span>Momentos únicos.</span></h1>
+
+        <p>
+            Bienvenido a JC SORTEOS RD, tu espacio para descubrir
+            promociones, premios exclusivos y novedades.
+        </p>
+
+        <div class="botones">
+            <a class="boton" href="#premios">🎁 Ver premios</a>
+
+            <button class="boton boton-secundario"
+            onclick="abrirModal('registro')">
+                Crear cuenta
+            </button>
+        </div>
+    </div>
+
+    <section id="premios">
+        <div class="titulo">
+            <h2>Nuestros <span>premios</span></h2>
+            <p>Descubre los premios destacados.</p>
+        </div>
+
+        <div class="tarjetas">
+
+            <article class="tarjeta">
+                <div class="imagen-premio">📱</div>
+                <div class="contenido">
+                    <h3>iPhone</h3>
+                    <p>Descubre las novedades de nuestros premios tecnológicos.</p>
+                    <span class="estado">Próximamente</span>
+                </div>
+            </article>
+
+            <article class="tarjeta">
+                <div class="imagen-premio">🚘</div>
+                <div class="contenido">
+                    <h3>Vehículos</h3>
+                    <p>Consulta las novedades sobre futuros premios de vehículos.</p>
+                    <span class="estado">Próximamente</span>
+                </div>
+            </article>
+
+            <article class="tarjeta">
+                <div class="imagen-premio">💵</div>
+                <div class="contenido">
+                    <h3>Premios en efectivo</h3>
+                    <p>Información sobre futuras promociones y sus condiciones.</p>
+                    <span class="estado">Próximamente</span>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <div class="info">
+        <section>
+            <div class="titulo">
+                <h2>¿Por qué <span>JC SORTEOS RD?</span></h2>
+                <p>Información clara y una experiencia sencilla.</p>
+            </div>
+
+            <div class="tarjetas">
+
+                <div class="info-caja">
+                    <div class="icono">🔎</div>
+                    <h3>Transparencia</h3>
+                    <p>Consulta las bases y condiciones de cada promoción.</p>
+                </div>
+
+                <div class="info-caja">
+                    <div class="icono">🏆</div>
+                    <h3>Resultados</h3>
+                    <p>Publicaremos los resultados verificados cuando existan.</p>
+                </div>
+
+                <div class="info-caja">
+                    <div class="icono">📱</div>
+                    <h3>Fácil de usar</h3>
+                    <p>Una página diseñada para celulares y computadoras.</p>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <section id="ganadores">
+        <div class="titulo">
+            <h2>Últimos <span>ganadores</span></h2>
+            <p>Espacio reservado para resultados oficiales.</p>
+        </div>
+
+        <div class="ganador">
+            <strong>🏆 Próximamente</strong>
+            <p>Los resultados verificados aparecerán aquí.</p>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <div class="titulo">
+            <h2>Conoce <span>JC SORTEOS RD</span></h2>
+            <p>Regístrate para preparar tu perfil de usuario.</p>
+        </div>
+
+        <div class="botones">
+            <button class="boton"
+            onclick="abrirModal('registro')">
+                👤 Crear cuenta
+            </button>
+
+            <button class="boton boton-secundario"
+            onclick="abrirModal('login')">
+                🔐 Iniciar sesión
+            </button>
+        </div>
+
+        <div class="aviso">
+            Esta es una versión inicial de demostración.
+            Las cuentas todavía no se guardan y no hay sorteos
+            activos ni pagos habilitados.
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <strong>JC SORTEOS RD</strong><br>
+    República Dominicana<br><br>
+    © <span id="anio"></span> JC SORTEOS RD<br>
+    <a href="#premios" style="color:#c9a75e">Ver premios</a>
+    &nbsp;|&nbsp;
+    <a href="#ganadores" style="color:#c9a75e">Resultados</a>
+</footer>
+
+<div class="modal" id="modal">
+    <div class="modal-contenido">
+        <button class="cerrar" onclick="cerrarModal()">×</button>
+
+        <h2 id="modal-titulo">Crear cuenta</h2>
+
+        <form id="formulario">
+            <div id="campo-nombre">
+                <input type="text" id="nombre"
+                placeholder="Tu nombre" autocomplete="name">
+            </div>
+
+            <input type="email" id="correo"
+            placeholder="Tu correo electrónico"
+            autocomplete="email" required>
+
+            <input type="password" id="clave"
+            placeholder="Contraseña de demostración"
+            autocomplete="current-password" required>
+
+            <button class="boton" type="submit">
+                Continuar
+            </button>
+        </form>
+
+        <p class="mensaje" id="mensaje">
+            Demostración: no introduzcas datos personales reales.
+        </p>
+    </div>
+</div>
+
+<script>
+document.getElementById("anio").textContent =
+    new Date().getFullYear();
+
+let modo = "registro";
+
+function abrirModal(tipo) {
+    modo = tipo;
+
+    document.getElementById("modal-titulo").textContent =
+        tipo === "registro" ? "Crear cuenta" : "Iniciar sesión";
+
+    document.getElementById("campo-nombre").style.display =
+        tipo === "registro" ? "block" : "none";
+
+    document.getElementById("mensaje").textContent =
+        "Demostración solamente. No se guardan datos.";
+
+    document.getElementById("modal").style.display = "flex";
+}
+
+function cerrarModal() {
+    document.getElementById("modal").style.display = "none";
+}
+
+document.getElementById("formulario").addEventListener(
+    "submit",
+    function(event) {
+        event.preventDefault();
+
+        document.getElementById("mensaje").textContent =
+            "La función de cuentas se configurará en la próxima etapa. No se ha creado ninguna cuenta.";
+    }
+);
+
+document.getElementById("modal").addEventListener(
+    "click",
+    function(event) {
+        if (event.target === this) {
+            cerrarModal();
+        }
+    }
+);
+</script>
+
+</body>
+</html>
